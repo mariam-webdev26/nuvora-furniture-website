@@ -567,6 +567,180 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+/* ===================================================
+        PRODUCT DETAILS
+=================================================== */
+
+function initProductDetails() {
+
+    /* ==========================
+            IMAGE GALLERY
+    ========================== */
+
+    const mainImage =
+        document.getElementById("mainProductImage");
+
+    const thumbnails =
+        document.querySelectorAll(".thumbnail");
+
+    thumbnails.forEach(function (thumbnail) {
+
+        thumbnail.addEventListener("click", function () {
+
+            mainImage.src = this.src;
+
+            thumbnails.forEach(function (img) {
+
+                img.classList.remove("active");
+
+            });
+
+            this.classList.add("active");
+
+        });
+
+    });
+
+
+    /* ==========================
+            QUANTITY
+    ========================== */
+
+    const minusBtn =
+        document.getElementById("minusBtn");
+
+    const plusBtn =
+        document.getElementById("plusBtn");
+
+    const quantityInput =
+        document.getElementById("quantityInput");
+
+    let quantity = 1;
+
+    minusBtn.addEventListener("click", function () {
+
+        if (quantity > 1) {
+
+            quantity--;
+
+            quantityInput.value = quantity;
+
+        }
+
+    });
+
+    plusBtn.addEventListener("click", function () {
+
+        quantity++;
+
+        quantityInput.value = quantity;
+
+    });
+
+
+    /* ==========================
+            COLOR SELECT
+    ========================== */
+
+    const colors =
+        document.querySelectorAll(".color");
+
+    colors.forEach(function (color) {
+
+        color.addEventListener("click", function () {
+
+            // Active Color
+            colors.forEach(function (item) {
+
+                item.classList.remove("active");
+
+            });
+
+            this.classList.add("active");
+
+            // Change Main Image
+            const image =
+                this.dataset.image;
+
+            mainImage.src = image;
+
+            // Update Active Thumbnail
+            thumbnails.forEach(function (thumb) {
+
+                thumb.classList.remove("active");
+
+                if (thumb.getAttribute("src") === image) {
+
+                    thumb.classList.add("active");
+
+                }
+
+            });
+
+        });
+
+    });
+
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    if (document.querySelector(".product-details")) {
+
+        initProductDetails();
+
+    }
+
+});
+
+
+
+
+
+
+/* ==========================
+        PRODUCT TABS
+========================== */
+
+const tabButtons =
+    document.querySelectorAll(".tab-btn");
+
+const tabContents =
+    document.querySelectorAll(".tab-content");
+
+tabButtons.forEach(function(button){
+
+    button.addEventListener("click",function(){
+
+        tabButtons.forEach(function(btn){
+
+            btn.classList.remove("active");
+
+        });
+
+        tabContents.forEach(function(content){
+
+            content.classList.remove("active");
+
+        });
+
+        this.classList.add("active");
+
+        document
+            .getElementById(this.dataset.tab)
+            .classList.add("active");
+
+    });
+
+});
+
+
+
+
+
+
+
+
 
 
 
