@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Nuvora</title>
+
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Login CSS -->
+    <link rel="stylesheet" href="assets/css/login.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         LOGIN PAGE
+    ========================================== -->
+
+    <main class="login-page">
+
+        <div class="login-wrapper">
+
+
+            <!-- =========================================
+                 IMAGE SIDE
+            ========================================== -->
+
+            <div class="login-image">
+
+                <img
+                    src="assets/images/login-image.jpg"
+                    alt="Nuvora Furniture"
+                >
+
+
+                <!-- Image Overlay -->
+                <div class="login-image-overlay"></div>
+
+
+                <!-- Image Content -->
+                <div class="login-image-content">
+
+                    <a href="index.html" class="login-brand">
+
+                        <img
+                            src="assets/images/banner-logo.png"
+                            alt="Nuvora"
+                        >
+
+                    </a>
+
+
+                    <div class="login-image-text">
+
+                        <span>
+                            Nuvora Living
+                        </span>
+
+                        <h2>
+                            Designed for<br>
+                            better living.
+                        </h2>
+
+                        <p>
+                            Thoughtfully designed furniture
+                            for beautiful and comfortable spaces.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================================
+                 FORM SIDE
+            ========================================== -->
+
+            <div class="login-form-side">
+
+                <div class="login-form-container">
+
+
+                    <!-- Mobile Logo -->
+                    <a href="index.html" class="mobile-login-logo">
+
+                        <img
+                            src="assets/images/banner-logo.png"
+                            alt="Nuvora"
+                        >
+
+                    </a>
+
+
+                    <!-- Header -->
+                    <div class="login-header">
+
+                        <span class="login-subtitle">
+                            Welcome Back
+                        </span>
+
+                        <h1>
+                            Sign In
+                        </h1>
+
+                        <p>
+                            Login to continue your shopping experience.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- =========================================
+                         LOGIN FORM
+                    ========================================== -->
+
+                    <form class="login-form">
+
+
+                        <!-- Email -->
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-regular fa-envelope"></i>
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    placeholder="Enter your email address"
+                                    autocomplete="email"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Password -->
+                        <div class="form-group">
+
+                            <label for="password">
+                                Password
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-solid fa-lock"></i>
+
+                                <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    placeholder="Enter your password"
+                                    autocomplete="current-password"
+                                    required
+                                >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    id="passwordToggle"
+                                    aria-label="Show password"
+                                >
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Login Options -->
+                        <div class="login-options">
+
+                            <label class="remember-me">
+
+                                <input
+                                    type="checkbox"
+                                    name="remember"
+                                >
+
+                                <span>
+                                    Remember me
+                                </span>
+
+                            </label>
+
+                            <a href="#" class="forgot-password">
+                                Forgot Password?
+                            </a>
+
+                        </div>
+
+
+
+                        <!-- Login Button -->
+                        <button
+                            type="submit"
+                            class="login-btn"
+                        >
+
+                            <span>
+                                Login
+                            </span>
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </button>
+
+
+                    </form>
+
+
+
+                    <!-- Back to Shop -->
+                    <div class="back-to-shop">
+
+                        <a href="shop.html">
+
+                            <i class="fa-solid fa-arrow-left"></i>
+
+                            Back to Shop
+
+                        </a>
+
+                    </div>
+
+
+
+                    <!-- Copyright -->
+                    <p class="login-copyright">
+                        © 2026 Nuvora. All rights reserved.
+                    </p>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =========================================
+         PASSWORD TOGGLE
+    ========================================== -->
+
+    <script>
+
+        const passwordInput =
+            document.getElementById("password");
+
+        const passwordToggle =
+            document.getElementById("passwordToggle");
+
+
+        passwordToggle.addEventListener("click", function () {
+
+            const isPassword =
+                passwordInput.type === "password";
+
+
+            passwordInput.type =
+                isPassword ? "text" : "password";
+
+
+            this.innerHTML = isPassword
+                ? '<i class="fa-regular fa-eye-slash"></i>'
+                : '<i class="fa-regular fa-eye"></i>';
+
+
+            this.setAttribute(
+                "aria-label",
+                isPassword ? "Hide password" : "Show password"
+            );
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
