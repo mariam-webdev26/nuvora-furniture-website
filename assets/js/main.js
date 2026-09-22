@@ -297,6 +297,8 @@ testimonialSlider();
 
 
 
+
+
 function initShopFilter() {
 
     const categoryFilter = document.getElementById("categoryFilter");
@@ -733,6 +735,97 @@ tabButtons.forEach(function(button){
     });
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+function initCounter() {
+
+    const counters = document.querySelectorAll(".stat-card h3");
+
+    const statsSection = document.querySelector(".company-stats");
+
+    if (!statsSection) return;
+
+    let started = false;
+
+    function startCounter() {
+
+        if (started) return;
+
+        started = true;
+
+        counters.forEach(function (counter) {
+
+            const target = parseInt(counter.textContent);
+
+            let count = 0;
+
+            const speed = target / 80;
+
+            function updateCounter() {
+
+                if (count < target) {
+
+                    count += speed;
+
+                    counter.textContent = Math.ceil(count) + "+";
+
+                    requestAnimationFrame(updateCounter);
+
+                } else {
+
+                    counter.textContent = target + "+";
+
+                }
+
+            }
+
+            updateCounter();
+
+        });
+
+    }
+
+    const observer = new IntersectionObserver(function (entries) {
+
+        if (entries[0].isIntersecting) {
+
+            startCounter();
+
+            observer.unobserve(statsSection);
+
+        }
+
+    }, {
+
+        threshold: 0.3
+
+    });
+
+    observer.observe(statsSection);
+
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    initCounter();
+
+});
+
+
+
+
+
 
 
 
