@@ -2,6 +2,10 @@
 
 Nuvora is a modern, responsive furniture e-commerce website designed with a clean, premium aesthetic. The project focuses on creating a polished shopping experience with responsive layouts, product browsing, filtering, sorting, and essential e-commerce pages.
 
+## 🌐 Live Demo
+
+https://nuvora-furniture.netlify.app/
+
 ## ✨ Features
 
 * Responsive design for desktop, tablet, and mobile
